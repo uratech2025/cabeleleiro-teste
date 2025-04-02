@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cabeleireiro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Cabeleireiro</h1>
+            <nav>
+                <button onclick="showSection('services')"><i class="fas fa-cut"></i> Serviços</button>
+                <button onclick="showSection('clients')"><i class="fas fa-users"></i> Clientes</button>
+                <button onclick="showSection('orders')"><i class="fas fa-clipboard-list"></i> Comandas</button>
+                <button onclick="showSection('cashflow')"><i class="fas fa-money-bill-wave"></i> Fluxo de Caixa</button>
+                <button onclick="showSection('inventory')"><i class="fas fa-box"></i> Estoque</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Serviços -->
+            <section id="services" class="section">
+                <h2>Serviços</h2>
+                <div class="form-container">
+                    <h3>Novo Serviço</h3>
+                    <form id="serviceForm">
+                        <input type="text" id="serviceName" placeholder="Nome do serviço" required>
+                        <input type="number" id="servicePrice" placeholder="Preço" step="0.01" required>
+                        <input type="number" id="serviceCommission" placeholder="Comissão (%)" step="0.01" required>
+                        <button type="submit"><i class="fas fa-plus"></i> Adicionar Serviço</button>
+                    </form>
+                </div>
+                <div class="list-container">
+                    <h3>Lista de Serviços</h3>
+                    <div id="servicesList"></div>
+                </div>
+            </section>
+
+            <!-- Clientes -->
+            <section id="clients" class="section">
+                <h2>Clientes</h2>
+                <div class="form-container">
+                    <h3>Novo Cliente</h3>
+                    <form id="clientForm">
+                        <input type="text" id="clientName" placeholder="Nome do cliente" required>
+                        <input type="number" id="clientBalance" placeholder="Saldo inicial" step="0.01" value="0">
+                        <button type="submit"><i class="fas fa-plus"></i> Adicionar Cliente</button>
+                    </form>
+                </div>
+                <div class="list-container">
+                    <h3>Lista de Clientes</h3>
+                    <div id="clientsList"></div>
+                </div>
+            </section>
+
+            <!-- Comandas -->
+            <section id="orders" class="section">
+                <h2>Comandas</h2>
+                <div class="form-container">
+                    <h3>Nova Comanda</h3>
+                    <form id="orderForm">
+                        <select id="orderClient" required>
+                            <option value="">Selecione o cliente</option>
+                        </select>
+                        <select id="orderService" required>
+                            <option value="">Selecione o serviço</option>
+                        </select>
+                        <button type="submit"><i class="fas fa-plus"></i> Abrir Comanda</button>
+                    </form>
+                </div>
+                <div class="list-container">
+                    <h3>Comandas Abertas</h3>
+                    <div id="ordersList"></div>
+                </div>
+            </section>
+
+            <!-- Fluxo de Caixa -->
+            <section id="cashflow" class="section">
+                <h2>Fluxo de Caixa</h2>
+                <div class="form-container">
+                    <h3>Nova Movimentação</h3>
+                    <form id="cashflowForm">
+                        <select id="cashflowType" required>
+                            <option value="entrada">Entrada</option>
+                            <option value="saida">Saída</option>
+                        </select>
+                        <input type="text" id="cashflowDescription" placeholder="Descrição" required>
+                        <input type="number" id="cashflowAmount" placeholder="Valor" step="0.01" required>
+                        <button type="submit"><i class="fas fa-plus"></i> Registrar</button>
+                    </form>
+                </div>
+                <div class="list-container">
+                    <h3>Histórico</h3>
+                    <div id="cashflowList"></div>
+                </div>
+            </section>
+
+            <!-- Estoque -->
+            <section id="inventory" class="section">
+                <h2>Estoque</h2>
+                <div class="form-container">
+                    <h3>Novo Item</h3>
+                    <form id="inventoryForm">
+                        <input type="text" id="itemName" placeholder="Nome do item" required>
+                        <input type="number" id="itemQuantity" placeholder="Quantidade" required>
+                        <input type="number" id="itemPrice" placeholder="Preço" step="0.01" required>
+                        <button type="submit"><i class="fas fa-plus"></i> Adicionar Item</button>
+                    </form>
+                </div>
+                <div class="list-container">
+                    <h3>Lista de Itens</h3>
+                    <div id="inventoryList"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
