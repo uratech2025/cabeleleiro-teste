@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -104,7 +105,13 @@ func main() {
 	r.PUT("/inventory/:id", updateInventoryItem)
 	r.DELETE("/inventory/:id", deleteInventoryItem)
 
-	r.Run(":8080")
+	// Obter o host da variável de ambiente ou usar o padrão
+	host := os.Getenv("HOST")
+	if host == "" {
+		host = "localhost"
+	}
+
+	r.Run(host + ":8080")
 }
 
 func createTables() {

@@ -17,8 +17,14 @@ COPY frontend/ ./frontend/
 WORKDIR /app/backend
 RUN go mod download
 
+# Compilar a aplicação
+RUN go build -o main .
+
 # Expor a porta 8080
 EXPOSE 8080
 
+# Definir variável de ambiente para o host
+ENV HOST=0.0.0.0
+
 # Comando para executar a aplicação
-CMD ["go", "run", "main.go"] 
+CMD ["./main"] 
