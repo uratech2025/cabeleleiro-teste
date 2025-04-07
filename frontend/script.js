@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:8080';
+// API base URL
+const API_URL = window.location.origin;
 
 // Show/hide sections
 function showSection(sectionId) {

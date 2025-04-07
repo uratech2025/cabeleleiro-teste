@@ -26,5 +26,8 @@ EXPOSE 10000
 # Definir variável de ambiente para a porta
 ENV PORT=10000
 
+# Definir o diretório de trabalho para a raiz do projeto
+WORKDIR /app
+
 # Comando para executar a aplicação
-CMD ["./main"] 
+CMD ["backend/main"] 

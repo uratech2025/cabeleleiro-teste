@@ -63,6 +63,13 @@ func main() {
 
 	r := gin.Default()
 
+	// Servir arquivos estáticos do frontend
+	r.Static("/", "../frontend")
+	r.StaticFile("/", "../frontend/index.html")
+	r.StaticFile("/index.html", "../frontend/index.html")
+	r.StaticFile("/styles.css", "../frontend/styles.css")
+	r.StaticFile("/script.js", "../frontend/script.js")
+
 	// Enable CORS
 	r.Use(func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
