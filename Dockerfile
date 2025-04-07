@@ -20,11 +20,11 @@ RUN go mod download
 # Compilar a aplicação
 RUN go build -o main .
 
-# Expor a porta 8080
-EXPOSE 8080
+# Expor a porta padrão do Render
+EXPOSE 10000
 
-# Definir variável de ambiente para o host
-ENV HOST=0.0.0.0
+# Definir variável de ambiente para a porta
+ENV PORT=10000
 
 # Comando para executar a aplicação
 CMD ["./main"] 

@@ -105,13 +105,14 @@ func main() {
 	r.PUT("/inventory/:id", updateInventoryItem)
 	r.DELETE("/inventory/:id", deleteInventoryItem)
 
-	// Obter o host da variável de ambiente ou usar o padrão
-	host := os.Getenv("HOST")
-	if host == "" {
-		host = "localhost"
+	// Obter a porta da variável de ambiente ou usar o padrão
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
 	}
 
-	r.Run(host + ":8080")
+	// Iniciar o servidor no host 0.0.0.0
+	r.Run("0.0.0.0:" + port)
 }
 
 func createTables() {
