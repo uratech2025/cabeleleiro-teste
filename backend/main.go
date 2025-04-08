@@ -70,6 +70,11 @@ func main() {
 	r.StaticFile("/styles.css", "./frontend/styles.css")
 	r.StaticFile("/script.js", "./frontend/script.js")
 
+	// Rota principal
+	r.GET("/", func(c *gin.Context) {
+		c.File("./frontend/index.html")
+	})
+
 	// Enable CORS
 	r.Use(func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
